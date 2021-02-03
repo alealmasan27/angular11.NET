@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
     website: new FormControl('')
   });
 
-  doughnutChartLabels: Label[] = ['BMW', 'Ford', 'Tesla'];
+  doughnutChartLabels: Label[] = [];
   doughnutChartData: MultiDataSet = [[55, 25, 20]];
   doughnutChartType: ChartType = 'doughnut';
 
@@ -65,13 +65,9 @@ export class HomeComponent implements OnInit {
     console.log(e.target.value);
     const companyName = e.target.value;
     if (companyName !== 'Choose Company') {
-      console.log(this.CompanyShareholders);
-      const shareholders = this.CompanyShareholders.filter(x => x.companyName == companyName);
-      console.log(shareholders.map(x => x.shareholderName));
-      this.doughnutChartLabels = [];
-      this.doughnutChartLabels.push(shareholders.map(x => x.shareholderName));
-      this.doughnutChartData = [];
-      this.doughnutChartData.push([shareholders.map(x => x.amount)]);
+      const shareholders = this.CompanyShareholders.filter(x => x.companyName === companyName);
+      this.doughnutChartLabels = [...shareholders.map(x => x.shareholderName)];
+      this.doughnutChartData = [[...shareholders.map(x => x.amount)]];
     }
   }
 }
