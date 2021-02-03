@@ -1,0 +1,26 @@
+<div class="content" role="main">
+
+    <!-- Resources -->
+    <h2>Here is a chart with the companies and their shareholders portions</h2>
+
+    <div class="chart-wrapper">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+           
+            <div class="form-group">
+                <label for="website">Company:</label>
+                <select formControlName="website" class="form-control" (change)="changeCompany($event)">
+                    <!-- <option disabled >Choose Company</option> -->
+                    <option selected>Choose Company</option>
+                    <option *ngFor="let company of CompanyNames">{{company}}</option>
+                </select>
+            </div>
+           
+            <!-- <button class="btn btn-primary" type="submit">Show</button> -->
+        </form>
+        <canvas baseChart 
+        [data]="doughnutChartData" 
+        [labels]="doughnutChartLabels" 
+        [chartType]="doughnutChartType">
+        </canvas>
+    </div>
+</div>
