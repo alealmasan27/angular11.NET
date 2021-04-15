@@ -1,5 +1,5 @@
 # Example Angular 11 with .NET
-This is a simple example of to use Angular 11 and .NET together.
+This is a simple example of how to use Angular 11 and .NET together.
 
 This application is just displaying a chart for each different company, which shows how much each of the shareholders own.
 ## Script to insert data into the DB: 
